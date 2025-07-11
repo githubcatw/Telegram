@@ -4,6 +4,8 @@ import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.dpf2;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 
 import org.telegram.messenger.AndroidUtilities;
@@ -124,7 +126,7 @@ public class StarGiftPatterns {
     }
 
     private static final float[] profileRight = new float[] {
-        -35.66f, -5, 24, .2388f,
+        10.33f, -5, 20.66f, .32f,
         -14.33f, -29.33f, 20.66f, .32f,
         -15, -73.66f, 19.33f, .32f,
         -2, -99.66f, 18, .1476f,
@@ -152,12 +154,14 @@ public class StarGiftPatterns {
         final float b = h;
         final float l = 0, r = w;
 
+        float[] testing = profileRight;
+
         if (full > 0) {
-            for (int i = 0; i < profileLeft.length; i += 4) {
-                final float x = profileLeft[i];
-                final float y = profileLeft[i + 1];
-                final float size = profileLeft[i + 2];
-                final float thisAlpha = profileLeft[i + 3];
+            for (int i = 0; i < testing.length; i += 4) {
+                final float x = testing[i];
+                final float y = testing[i + 1];
+                final float size = testing[i + 2];
+                final float thisAlpha = testing[i + 3];
 
                 pattern.setBounds(
                     (int) (l + dpf2(x) - dpf2(size) / 2.0f),
@@ -192,11 +196,11 @@ public class StarGiftPatterns {
             }
         }
 
-        for (int i = 0; i < profileRight.length; i += 4) {
-            final float x = profileRight[i];
-            final float y = profileRight[i + 1];
-            final float size = profileRight[i + 2];
-            final float thisAlpha = profileRight[i + 3];
+        for (int i = 0; i < testing.length; i += 4) {
+            final float x = testing[i];
+            final float y = testing[i + 1];
+            final float size = testing[i + 2];
+            final float thisAlpha = testing[i + 3];
 
             pattern.setBounds(
                 (int) (r + dpf2(x) - dpf2(size) / 2.0f),

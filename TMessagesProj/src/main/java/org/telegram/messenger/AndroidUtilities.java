@@ -5132,6 +5132,14 @@ public class AndroidUtilities {
         scaleRect(rect, scale, rect.centerX(), rect.centerY());
     }
 
+    public static float capRemap(float a, float max) {
+        return Math.max(a, max) / max;
+    }
+
+    public static float capRemapMin(float a, float min) {
+        return capRemap(Math.min(0, a - min), 1-min);
+    }
+
     public static void scaleRect(RectF rect, float scale, float px, float py) {
         final float wl = px - rect.left, wr = rect.right - px;
         final float ht = py - rect.top, hb = rect.bottom - py;

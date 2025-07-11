@@ -9483,4 +9483,9 @@
     <string name="MessageTodoList">Checklist</string>
     <string name="TodoCheck">Check</string>
     <string name="TodoUncheck">Uncheck</string>
+
+    <string name="StopBot">Stop Bot</string>
+    <string name="GiftAction">Gift</string>
+    <string name="Share">Share</string>
+    <string name="Discuss">Discuss</string>
 </resources>
