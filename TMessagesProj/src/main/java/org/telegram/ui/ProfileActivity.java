@@ -6184,9 +6184,6 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         if (floatingButtonContainer != null) {
             floatingButtonContainer.setTranslationY(AndroidUtilities.dp(100) * floatingButtonHideProgress);
         }
-        if (actionContainer != null) {
-            actionContainer.setTranslationY(AndroidUtilities.dp(80) * floatingButtonHideProgress);
-        }
     }
 
     private boolean expandAvatar() {
@@ -8044,6 +8041,9 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     starBgItem.setTranslationY(avatarContainer.getY() + AndroidUtilities.dp(24) + extra);
                     starFgItem.setTranslationX(avatarContainer.getX() + AndroidUtilities.dp(28) + extra);
                     starFgItem.setTranslationY(avatarContainer.getY() + AndroidUtilities.dp(24) + extra);
+                    actionContainer.setTranslationY(AndroidUtilities.lerp(-AndroidUtilities.dp(newHeightDp-50), 0, diff));
+                    ViewGroup.LayoutParams lp = actionContainer.getLayoutParams();
+                    lp.height = AndroidUtilities.lerp(0, AndroidUtilities.dp(64), diff);
                 }
                 nameX = ((
                     AndroidUtilities.dp(
