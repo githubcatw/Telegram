@@ -5132,10 +5132,20 @@ public class AndroidUtilities {
         scaleRect(rect, scale, rect.centerX(), rect.centerY());
     }
 
+    /**
+     * Remaps a number to a smaller range, where 1 is returned once a reaches max.
+     * <br>
+     * Expects a number in the range [0; 1].
+     */
     public static float capRemap(float a, float max) {
         return Math.min(a, max) / max;
     }
 
+    /**
+     * Remaps a number to a smaller range, where 0 is returned if a is min or less.
+     * <br>
+     * Expects a number in the range [0; 1].
+     */
     public static float capRemapMin(float a, float min) {
         if (min == 1) {
             return (min == a) ? 1 : 0;
