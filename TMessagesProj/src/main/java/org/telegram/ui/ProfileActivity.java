@@ -2056,14 +2056,14 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         }
 
         public void animate(float progress) {
-            textView.setScaleX(AndroidUtilities.lerp(0.75f, 1.0f, progress));
-            textView.setScaleY(AndroidUtilities.lerp(0.75f, 1.0f, progress));
-            textView.setAlpha(AndroidUtilities.lerp(0.75f, 1.0f, progress));
-            iconView.setScaleX(AndroidUtilities.lerp(0.75f, 1.0f, progress));
-            iconView.setScaleY(AndroidUtilities.lerp(0.75f, 1.0f, progress));
-            iconView.setAlpha(AndroidUtilities.lerp(0.75f, 1.0f, progress));
+            textView.setScaleX(AndroidUtilities.lerp(0.65f, 1.0f, progress));
+            textView.setScaleY(AndroidUtilities.lerp(0.65f, 1.0f, progress));
+            textView.setAlpha(AndroidUtilities.lerp(0.5f, 1.0f, progress));
+            iconView.setScaleX(AndroidUtilities.lerp(0.65f, 1.0f, progress));
+            iconView.setScaleY(AndroidUtilities.lerp(0.65f, 1.0f, progress));
+            iconView.setAlpha(AndroidUtilities.lerp(0.5f, 1.0f, progress));
             this.setAlpha(
-                AndroidUtilities.lerp(0.75f, 1.0f, AndroidUtilities.capRemapMin(progress, 0.5f))
+                AndroidUtilities.lerp(0.5f, 1.0f, AndroidUtilities.capRemapMin(progress, 0.5f))
             );
         }
 
@@ -8043,7 +8043,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     starFgItem.setTranslationY(avatarContainer.getY() + AndroidUtilities.dp(24) + extra);
                     actionContainer.setTranslationY(AndroidUtilities.lerp(-AndroidUtilities.dp(newHeightDp-50), 0, diff));
                     ViewGroup.LayoutParams lp = actionContainer.getLayoutParams();
-                    lp.height = AndroidUtilities.lerp(0, AndroidUtilities.dp(64), diff);
+                    lp.height = AndroidUtilities.lerp(0, AndroidUtilities.dp(64), AndroidUtilities.capRemapMin(diff, 0.3f));
+                    Log.d("addedLog", "uwu"+diff);
                 }
                 nameX = ((
                     AndroidUtilities.dp(
@@ -8083,7 +8084,6 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 updateCollectibleHint();
                 actionContainer.animate(diff);
             }
-            FrameLayout.LayoutParams nlayoutParams = (FrameLayout.LayoutParams) nameTextView[1].getLayoutParams();
 
             if (!openAnimationInProgress && (expandAnimator == null || !expandAnimator.isRunning())) {
                 needLayoutText(diff);

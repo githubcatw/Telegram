@@ -5137,7 +5137,10 @@ public class AndroidUtilities {
     }
 
     public static float capRemapMin(float a, float min) {
-        return capRemap(Math.min(0, a - min), 1-min);
+        if (min == 1) {
+            return (min == a) ? 1 : 0;
+        }
+        return Math.max(0, (a-min)/(1-min));
     }
 
     public static void scaleRect(RectF rect, float scale, float px, float py) {
