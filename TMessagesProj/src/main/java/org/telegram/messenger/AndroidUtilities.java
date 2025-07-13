@@ -5133,7 +5133,7 @@ public class AndroidUtilities {
     }
 
     public static float capRemap(float a, float max) {
-        return Math.max(a, max) / max;
+        return Math.min(a, max) / max;
     }
 
     public static float capRemapMin(float a, float min) {
